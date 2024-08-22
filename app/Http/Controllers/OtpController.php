@@ -59,18 +59,6 @@ class OtpController extends Controller
         $otp = tblUserOtp::where('userId', $contact)->first();
         $otpCode = $otp->otp;
 
-        //nexmo
-        // $originalNumber = $contact;
-        // $originalNumber = ltrim($originalNumber, '0');
-
-        // $newNumber = "63".$originalNumber;
-
-        // $basic  = new Basic("0b084dc3", "8IiqVm2JHUOUBwLx");
-        // $client = new Client($basic);
-        // $client->sms()->send(
-        //     new SMS($newNumber, "ECABS", '[ECABS] Your OTP Confirmation Code:'. $otpCode)
-        // );
-
         // Pass form inputs to the view
         return view('auth.authConfirmation', compact(
             'name', 'contact', 'bday', 'address', 'email', 'password', 'password_confirmation', 'otpCode'
